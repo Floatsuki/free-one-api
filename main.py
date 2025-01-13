@@ -11,7 +11,8 @@ if not os.path.exists('./data'):
 from free_one_api.impls import app
 
 def main():
-    loop = asyncio.get_event_loop()
+    loop = asyncio.new_event_loop()
+    asyncio.set_event_loop(loop)
     
     application = loop.run_until_complete(app.make_application("./data/config.yaml"))
 
